@@ -1,47 +1,61 @@
-import React, { Component } from 'react';
-import NavItem from './NavItem';
+import React from "react";
+import { Nav, Navbar } from "react-bootstrap";
+import styled from "styled-components";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 
-class Navbar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      NavItemActive: '',
-    };
+const Styles = styled.div`
+  .navbar {
+    background-color: #222;
+    font-family: courier, monospace, sans serif;
   }
-  activeItem = x => {
-    if (this.state.NavItemActive.length > 0) {
-      document
-        .getElementById(this.state.NavItemActive)
-        .classList.remove('active');
+
+  .navbar-nav .nav-link {
+    color: #fff;
+    font-size: 1.2em;
+
+    &:hover {
+      color: #cecece;
+      border-bottom: 1px solid rgb(249, 211, 66);
     }
-    this.setState({ NavItemActive: x }, () => {
-      document.getElementById(this.state.NavItemActive).classList.add('active');
-    });
-  };
-  render() {
-    return (
-      <nav>
-        <ul>
-          <NavItem item="Home" toLink="/" active={this.activeItem}></NavItem>
-          <NavItem
-            item="About"
-            toLink="/about"
-            active={this.activeItem}
-          ></NavItem>
-          <NavItem
-            item="Projects"
-            toLink="/projects"
-            active={this.activeItem}
-          ></NavItem>
-          <NavItem
-            item="Contact"
-            toLink="/contact"
-            active={this.activeItem}
-          ></NavItem>
-        </ul>
-      </nav>
-    );
   }
-}
-
-export default Navbar;
+  .navbar-brand {
+    font-size: 1.5em;
+    color: rgb(249, 211, 66);
+    &:hover {
+      color: rgb(249, 211, 66);
+      border-bottom: 1px solid #fff;
+    }
+  }
+`;
+export const NavBar = () => (
+  <Styles>
+    <Navbar collapseOnSelect expand="lg" fixed="top" bg="dark" variant="dark">
+      <Navbar.Brand href="/">Eduardo Verde </Navbar.Brand>
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Collapse id="responsive-navbar-nav">
+        <Nav className="mr-auto">
+          <Nav.Item>
+            <Nav.Link href="/about">About</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="/projects">Projects</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="/contact">Contact </Nav.Link>
+          </Nav.Item>
+        </Nav>
+        <Nav>
+          <Nav.Link
+            href="https://www.linkedin.com/in/eduardoverde/"
+            target="_blank"
+          >
+            <FaLinkedin />
+          </Nav.Link>
+          <Nav.Link href="https://github.com/eiab30p" target="_blank">
+            <FaGithub />
+          </Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
+  </Styles>
+);
