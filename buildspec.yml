@@ -13,8 +13,8 @@ phases:
     commands:
       - echo Build started on `date`
       - pwd
-      - ls
-      - cd ..
+      - ls src
+      - ls src/components
       - npm run build
 
 artifacts:
