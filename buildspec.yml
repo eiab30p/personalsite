@@ -19,3 +19,4 @@ artifacts:
     - "**/*"
     - src/**/**/*
   base-directory: build
+  discard-paths: yes
