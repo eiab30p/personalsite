@@ -1,13 +1,14 @@
 version: 0.1
 
-artifacts:
-  files:
-    - package.json
-    - src/**/*
-    - public/*
-
 phases:
   build:
     commands:
       - npm install
       - npm run build
+
+artifacts:
+  files:
+    - package.json
+    - src/**/*
+    - public/*
+    base-directory: 'dist'
