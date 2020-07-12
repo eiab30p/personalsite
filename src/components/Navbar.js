@@ -1,5 +1,5 @@
 import React from "react";
-import { Nav, Navbar } from "react-bootstrap";
+import { Nav, Navbar as ReactBar } from "react-bootstrap";
 import styled from "styled-components";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 
@@ -29,10 +29,10 @@ const Styles = styled.div`
 `;
 export const NavBar = () => (
   <Styles>
-    <Navbar collapseOnSelect expand="lg" fixed="top" bg="dark" variant="dark">
-      <Navbar.Brand href="/">Eduardo Verde </Navbar.Brand>
-      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-      <Navbar.Collapse id="responsive-navbar-nav">
+    <ReactBar collapseOnSelect expand="lg" fixed="top" bg="dark" variant="dark">
+      <ReactBar.Brand href="/">Eduardo Verde </ReactBar.Brand>
+      <ReactBar.Toggle aria-controls="responsive-navbar-nav" />
+      <ReactBar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
           <Nav.Item>
             <Nav.Link href="/about">About</Nav.Link>
@@ -55,7 +55,7 @@ export const NavBar = () => (
             <FaGithub />
           </Nav.Link>
         </Nav>
-      </Navbar.Collapse>
-    </Navbar>
+      </ReactBar.Collapse>
+    </ReactBar>
   </Styles>
 );
