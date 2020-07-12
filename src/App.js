@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { NavBar } from "components/NavBar";
+import { NaviBar } from "./components/NaviBar";
 import { Home } from "./content/Home";
 import About from "./content/About";
 import { Contact } from "./content/Contact";
@@ -10,7 +10,7 @@ import { Portfolio } from "./content/Portfolio";
 function App() {
   return (
     <React.Fragment>
-      <NavBar />
+      <NaviBar />
       <Router>
         <Switch>
           <Route exact path="/" component={Home} />

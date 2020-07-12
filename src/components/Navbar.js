@@ -27,7 +27,7 @@ const Styles = styled.div`
     }
   }
 `;
-export const NavBar = () => (
+export const NaviBar = () => (
   <Styles>
     <ReactBar collapseOnSelect expand="lg" fixed="top" bg="dark" variant="dark">
       <ReactBar.Brand href="/">Eduardo Verde </ReactBar.Brand>
