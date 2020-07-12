@@ -13,6 +13,8 @@ phases:
     commands:
       - echo Build started on `date`
       - pwd
+      - ls
+      - cd ..
       - npm run build
 
 artifacts:
