@@ -1,11 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { NavBar } from "./components/NavBar";
 import { Home } from "./content/Home";
 import About from "./content/About";
 import { Contact } from "./content/Contact";
 import { NotFound } from "./content/NotFound";
 import { Portfolio } from "./content/Portfolio";
-import { NavBar } from "./components/NavBar";
+
 function App() {
   return (
     <React.Fragment>
