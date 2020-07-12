@@ -7,18 +7,15 @@ phases:
   #     - npm run build
   pre_build:
     commands:
-      - echo Installing source NPM dependencies...
+      - echo Installing npm dependencies...
       - npm install
   build:
     commands:
-      - echo Build started on `date`
-      - pwd
-      - ls src
-      - ls src/components
+      - echo Starting Build
       - npm run build
 
 artifacts:
   files:
     - "**/*"
-  base-directory: build
-  discard-paths: yes
+  # base-directory: build
+  # discard-paths: yes
