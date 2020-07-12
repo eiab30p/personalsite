@@ -9,5 +9,5 @@ phases:
 artifacts:
   files:
     - "**/*"
-    - src/**
-  base-directory: build
+    - src/**/**/*
+  # base-directory: build
