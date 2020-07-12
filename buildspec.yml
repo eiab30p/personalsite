@@ -8,7 +8,6 @@ phases:
 
 artifacts:
   files:
-    - package.json
-    - src/**/*
-    - public/*
-    base-directory: 'dist'
+    - "package.json"
+    - "src/**/*"
+    - "public/*"
