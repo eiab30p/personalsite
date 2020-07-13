@@ -107,7 +107,7 @@ const Contact = () => {
                 required
                 type="email"
                 name="email"
-                placeholder="examil@gmail.com"
+                placeholder="example@gmail.com"
                 isInvalid={errors.email}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
