@@ -43,7 +43,7 @@ const Contact = () => {
           "Access-Control-Allow-Headers": "Content-Type",
           "Access-Control-Allow-Methods": "OPTIONS,POST",
         },
-        // mode: "no-cors",
+        mode: "no-cors",
         body: JSON.stringify({
           name,
           email,
