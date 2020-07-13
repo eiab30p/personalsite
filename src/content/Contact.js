@@ -35,29 +35,27 @@ const Contact = () => {
       setValidated(false);
     } else {
       setValidated(true);
-      console.log({ name, email, message });
-      console.log(`${process.env.REACT_APP_API_DOMAIN}`);
-      // fetch(`${process.env.REACT_APP_API_DOMAIN}/contactme`, {
-      //   method: "POST",
-      //   headers: {
-      //     Accept: "application/json",
-      //     "Content-Type": "application/json",
-      //     "Access-Control-Allow-Headers": "Content-Type",
-      //     "Access-Control-Allow-Methods": "OPTIONS,POST",
-      //   },
-      //   // mode: "no-cors",
-      //   body: JSON.stringify({
-      //     name,
-      //     email,
-      //     message,
-      //   }),
-      // })
-      // .then((resp) => {
-      //   console.log(resp);
-      // })
-      // .catch((error) => {
-      //   console.log(error);
-      // });
+      fetch(`${process.env.REACT_APP_API_DOMAIN}/contactme`, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Headers": "Content-Type",
+          "Access-Control-Allow-Methods": "OPTIONS,POST",
+        },
+        // mode: "no-cors",
+        body: JSON.stringify({
+          name,
+          email,
+          message,
+        }),
+      })
+        .then((resp) => {
+          console.log(resp);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
   };
 
