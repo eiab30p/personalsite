@@ -92,7 +92,7 @@ export const Jumbotron = () => (
               className="typing-effect"
               text={[
                 "Software Engineer",
-                "Full Stack Engineer",
+                "Full-Stack Engineer",
                 "DevOps Engineer",
                 "Agile Trained",
                 "Problem Solver",

@@ -7,7 +7,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   padding-top: 3.5rem;
 }
-
+hr {
+  border-color: rgb(249, 211, 66) !important;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -23,7 +25,8 @@ h4,
 h5,
 h6,
 p,
-b {
+b,
+label {
   font-family: "Work Sans", sans serif;
 }
 
@@ -112,21 +115,25 @@ h5 {
 h6 {
   font-size: 0.95em;
 }
-p {
+p,
+label {
   font-size: 1.4em;
 }
 @media screen and (max-width: 1440px) {
-  p {
+  p,
+  label {
     font-size: 1.25em;
   }
 }
 @media screen and (max-width: 1024px) {
-  p {
+  p,
+  label {
     font-size: 1em;
   }
 }
 @media screen and (max-width: 768px) {
-  p {
+  p,
+  label {
     font-size: 0.95em;
   }
 }

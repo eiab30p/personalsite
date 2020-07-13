@@ -1,7 +1,8 @@
 import React from "react";
 import { Nav, Navbar as ReactBar } from "react-bootstrap";
 import styled from "styled-components";
-import { FaLinkedin, FaGithub } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaFilePdf } from "react-icons/fa";
+import PDFFile from "../assets/Verde-Resume-2.pdf";
 
 const Styles = styled.div`
   .navbar {
@@ -49,10 +50,13 @@ export const NaviBar = () => (
             href="https://www.linkedin.com/in/eduardoverde/"
             target="_blank"
           >
-            <FaLinkedin />
+            <FaLinkedin title={"LinkedIn Page"} />
           </Nav.Link>
           <Nav.Link href="https://github.com/eiab30p" target="_blank">
-            <FaGithub />
+            <FaGithub title={"GitHub Page"} />
+          </Nav.Link>
+          <Nav.Link href={PDFFile} target="_blank" download>
+            <FaFilePdf title={"Download Resume"} />
           </Nav.Link>
         </Nav>
       </ReactBar.Collapse>

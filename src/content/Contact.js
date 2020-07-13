@@ -1,490 +1,128 @@
-import React from "react";
+import React, { useState } from "react";
 import { Layout } from "../components/Layout";
-import styled from "styled-components";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import validator from "validator";
+import empty from "is-empty";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import "../styles/Contact.css";
+const Contact = () => {
+  const [validated, setValidated] = useState(null);
+  const [errors, setErrors] = useState({});
+  const [name, setName] = useState("");
+  const [message, setMessage] = useState("");
+  const [email, setEmail] = useState("");
 
-const Styles = styled.div`
-  @import url(
-    https://fonts.googleapis.com/css?family=Roboto:400,
-    100,
-    300,
-    500,
-    700
-  );
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-  body {
-    background: #eeeef4;
-    color: #999;
-    font-family: Roboto;
-  }
+    const errors = {};
+    setErrors(errors);
 
-  h1 {
-    font-weight: 100;
-    font-size: 27pt;
-    color: #e43;
-  }
-
-  p {
-    font-weight: 300;
-  }
-
-  .warning-content {
-    position: absolute;
-    top: 25%;
-    width: 100%;
-    height: 300px;
-    text-align: center;
-    margin: 0;
-  }
-
-  * html .clearfix {
-    zoom: 1;
-  }
-  /* IE6 */
-  *:first-child + html .clearfix {
-    zoom: 1;
-  }
-  /* IE7 */
-  .clearfix:before,
-  .clearfix:after {
-    content: "";
-    display: table;
-  }
-  .clearfix:after {
-    clear: both;
-  }
-  .clearfix {
-    zoom: 1;
-    /* For IE 6/7 (trigger hasLayout) */
-  }
-  * {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-  }
-  a,
-  a:hover,
-  a:focus,
-  a:active {
-    text-decoration: none !important;
-    outline: none;
-  }
-  .npd {
-    padding: 0;
-  }
-  ul,
-  li {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  }
-  a:hover {
-    opacity: 0.7;
-    color: white;
-  }
-
-  .clear {
-    clear: both;
-  }
-  img {
-    max-width: 100%;
-  }
-  h1,
-  h2,
-  h3,
-  h4 {
-    padding: 0;
-    margin: 0;
-  }
-
-  .comp {
-    width: 100%;
-    height: 194px;
-    text-align: center;
-  }
-  .comp .monitor {
-    width: 275px;
-    height: 181px;
-    display: block;
-    margin: 0 auto;
-    border-radius: 10px 10px 0px 0px;
-    padding: 9px;
-    border: solid 1px #e0e2e2;
-    background-color: black;
-  }
-  .comp .mid {
-    float: left;
-    display: block;
-    height: 100%;
-    position: relative;
-    background-color: #abadc6;
-    width: 50%;
-  }
-  .comp .mid.codigo {
-    background-color: #22262b;
-  }
-  .comp .site {
-    overflow: hidden;
-    position: absolute;
-    width: 105px;
-    height: 138px;
-    bottom: 0;
-    right: 0;
-  }
-  .comp .site .topbar {
-    width: 100%;
-  }
-  .comp .site .cerrar {
-    width: 100%;
-    padding: 3px;
-    line-height: 0;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    border-radius: 4px 4px 0px 0px;
-    background-color: #afa895;
-  }
-  .comp .site .cerrar > div {
-    display: inline-block;
-    width: 2px;
-    height: 2px;
-    border-radius: 50%;
-    background: white;
-    margin: 0px 1px;
-  }
-  .comp .site .inhead {
-    padding: 2px;
-    height: 5px;
-    background-color: #ddd8cf;
-  }
-  .comp .site .inhead .item {
-    width: 10px;
-    height: 1px;
-    background-color: #d1c9bf;
-    margin: 0 1px;
-    display: block;
-    float: left;
-  }
-  .comp .txr {
-    text-align: right;
-  }
-  .comp .txr .item {
-    float: right;
-  }
-  .comp .inslid {
-    width: 100%;
-    height: 33px;
-    background-color: #efebe2;
-  }
-  .comp .incont {
-    padding-top: 10px;
-    background: #fefaf0;
-  }
-  .comp .incont .item {
-    background-color: #d1c9bf;
-    width: 53px;
-    height: 2px;
-    display: block;
-    margin: 0 auto;
-    margin-top: 1px;
-  }
-  .comp .incont .item:nth-child(1) {
-    width: 20px;
-  }
-  .comp .incont .item:nth-child(2) {
-    margin-top: 3px;
-    width: 41px;
-  }
-  .comp .incont .item:nth-child(3) {
-    width: 32px;
-  }
-  .comp .incont .item:nth-child(4) {
-    width: 23px;
-  }
-  .comp .incont .wid {
-    width: 100%;
-    padding: 8px 1px;
-  }
-  .comp .incont .wid .itwid {
-    width: 33.333%;
-    float: left;
-    height: 26px;
-    padding: 0px 3px;
-  }
-  .comp .incont .wid .itwid > div {
-    width: 100%;
-    height: 100%;
-    background-color: #f5f1e6;
-    position: relative;
-  }
-  .comp .incont .wid .itwid > div .contfoot {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 6px;
-    width: 100%;
-    background-color: #ebe5dc;
-  }
-  .comp .incont .infoot {
-    background-color: #efebe2;
-    height: 26px;
-    width: 100%;
-  }
-  @keyframes code {
-    0% {
-      opacity: 1;
+    if (!validator.isEmail(email)) {
+      errors.email = "Invalid email address";
     }
-    50% {
-      opacity: 0.6;
+    if (validator.isEmpty(name)) {
+      errors.name = "Name Is Required";
     }
-    100% {
-      opacity: 1;
+    if (validator.isEmpty(message)) {
+      errors.message = "Invalid email address";
     }
-  }
-  .comp .codigo {
-    padding: 14px 0px 14px 14px;
-  }
-  .comp .codigo .var {
-    background-color: #ac5e47;
-    animation: code;
-    animation-duration: 0.3s;
-    animation-iteration-count: infinite;
-  }
-  .comp .codigo .cont {
-    background-color: #464748;
-    animation: code;
-    animation-duration: 0.5s;
-    animation-iteration-count: infinite;
-  }
-  .comp .codigo .fun {
-    background-color: #fbb053;
-    animation: code;
-    animation-duration: 0.2s;
-    animation-iteration-count: infinite;
-  }
-  .comp .codigo .atr {
-    background-color: #645572;
-    animation: code;
-    animation-duration: 0.1s;
-    animation-iteration-count: infinite;
-  }
-  .comp .codigo .item {
-    height: 3px;
-    width: 20px;
-    float: left;
-    margin-right: 3px;
-  }
-  .comp .codigo .item.min {
-    width: 13px;
-  }
-  .comp .codigo .item.lrg {
-    width: 30px;
-  }
-  .comp .codigo .line {
-    padding: 2px 0;
-    width: 100%;
-  }
-  .comp .codigo .tab1 {
-    padding-left: 5px;
-  }
-  .comp .codigo .tab2 {
-    padding-left: 8px;
-  }
-  .comp .codigo .tab3 {
-    padding-left: 10px;
-  }
-  .comp .codigo .tab4 {
-    padding-left: 12px;
-  }
-  .base {
-    width: 338px;
-    height: 12px;
-    background: #e0e2e2;
-    display: block;
-    margin: 0 auto;
-    border-radius: 0px 0px 6px 6px;
-  }
-`;
 
-export const Contact = () => (
-  <Styles>
+    if (!empty(errors)) {
+      setErrors(errors);
+      setValidated(false);
+    } else {
+      setValidated(true);
+      console.log({ name, email, message });
+    }
+  };
+
+  return (
     <Layout>
-      <div>
-        <h2>Contact</h2>
-        <div class="warning-content">
-          <h1>Coming Soon</h1>
-          <div class="comp">
-            <div class="monitor">
-              <div class="mid">
-                <div class="site">
-                  <div class="topbar">
-                    <div class="cerrar">
-                      <div class="circl"></div>
-                      <div class="circl"></div>
-                      <div class="circl"></div>
-                    </div>
-                  </div>
-                  <div class="inhead">
-                    <div class="mid">
-                      <div class="item"></div>
-                    </div>
-                    <div class="mid txr">
-                      <div class="item"></div>
-                      <div class="item"></div>
-                      <div class="item"></div>
-                      <div class="item"></div>
-                    </div>
-                  </div>
-                  <div class="inslid"></div>
-                  <div class="incont">
-                    <div class="item"></div>
-                    <div class="item"></div>
-                    <div class="item"></div>
-                    <div class="item"></div>
-                    <div class="wid">
-                      <div class="itwid">
-                        <div>
-                          <div class="contfoot"></div>
-                        </div>
-                      </div>
-                      <div class="itwid">
-                        <div>
-                          <div class="contfoot"></div>
-                        </div>
-                      </div>
-                      <div class="itwid">
-                        <div>
-                          <div class="contfoot"></div>
-                        </div>
-                      </div>
-                      <div class="clearfix"></div>
-                    </div>
-                    <div class="infoot"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="mid codigo">
-                <div class="line">
-                  <div class="item var"></div>
-                  <div class="item cont"></div>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="line">
-                  <div class="item min var"></div>
-                  <div class="item min fun"></div>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="line">
-                  <div class="item min var"></div>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="line">
-                  <div class="item var"></div>
-                  <div class="item atr"></div>
-                  <div class="item cont"></div>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="line tab1">
-                  <div class="item min atr"></div>
-                  <div class="item lrg fun"></div>
-                  <div class="item min fun"></div>
-                  <div class="item lrg cont"></div>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="line tab1">
-                  <div class="item lrg atr"></div>
-                  <div class="item min fun"></div>
-                  <div class="item min cont"></div>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="line tab1">
-                  <div class="item atr"></div>
-                  <div class="item min fun"></div>
-                  <div class="item atr"></div>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="line tab1">
-                  <div class="item min atr"></div>
-                  <div class="item min cont"></div>
-                  <div class="item lrg atr"></div>
-                  <div class="item fun"></div>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="line tab1">
-                  <div class="item min atr"></div>
-                  <div class="item lrg fun"></div>
-                  <div class="item lrg cont"></div>
-                  <div class="item min fun"></div>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="line tab1">
-                  <div class="item min var"></div>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="line tab1">
-                  <div class="item min var"></div>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="line tab2">
-                  <div class="item min var"></div>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="line tab2">
-                  <div class="item min atr"></div>
-                  <div class="item min fun"></div>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="line tab3">
-                  <div class="item min atr"></div>
-                  <div class="item min fun"></div>
-                  <div class="item lrg fun"></div>
-                  <div class="item lrg cont"></div>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="line tab3">
-                  <div class="item min atr"></div>
-                  <div class="item min fun"></div>
-                  <div class="item lrg atr"></div>
-                  <div class="item lrg cont"></div>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="line tab4">
-                  <div class="item min fun"></div>
-                  <div class="item lrg atr"></div>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="line tab1">
-                  <div class="item atr"></div>
-                  <div class="item var"></div>
-                  <div class="item cont"></div>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="line tab3">
-                  <div class="item min var"></div>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="line tab4">
-                  <div class="item min atr"></div>
-                  <div class="item min fun"></div>
-                  <div class="item lrg atr"></div>
-                  <div class="item lrg cont"></div>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="line">
-                  <div class="item min var"></div>
-                  <div class="clearfix"></div>
-                </div>
-              </div>
-            </div>
-            <div class="base"></div>
-          </div>
-
+      <h3 className="font-weight-bold bold-text">
+        Don't be a stranger <br />
+        <span className="contact-header-second"> say hello</span>
+      </h3>
+      <hr />
+      <Row xs={1} md={2} lg={2}>
+        <Col className="left-content">
           <p>
-            Eduardo.Eddy.Verde@gmail.com <br />
+            Feel free to get in touch with me. I am always open to discussing
+            new projects, creative ideas, or opportunities to be part of your
+            vision.
           </p>
-        </div>
-      </div>
+          <small>
+            Email me directly at{" "}
+            <a
+              href="mailto:eduardo.eddy.verde94@gmail.com"
+              className="email-tag"
+            >
+              eduardo.eddy.verde94@gmail.com
+            </a>
+          </small>
+        </Col>
+        <Col>
+          <Form noValidate validated={validated} onSubmit={handleSubmit}>
+            <Form.Group controlId="exampleForm.ControlInput2">
+              <Form.Label>Name</Form.Label>
+              <Form.Control
+                required
+                type="text"
+                name="name"
+                placeholder="Enter Your Full Name"
+                isInvalid={errors.name}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+              <Form.Control.Feedback type="invalid">
+                Please enter your name.
+              </Form.Control.Feedback>
+              <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+            </Form.Group>
+            <Form.Group controlId="exampleForm.ControlInput1">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control
+                required
+                type="email"
+                name="email"
+                placeholder="examil@gmail.com"
+                isInvalid={errors.email}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <Form.Control.Feedback type="invalid">
+                Please enter your email.
+              </Form.Control.Feedback>
+              <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+            </Form.Group>
+
+            <Form.Group controlId="exampleForm.ControlTextarea1">
+              <Form.Label>Message</Form.Label>
+              <Form.Control
+                required
+                as="textarea"
+                rows="3"
+                name="message"
+                placeholder="Type Your Message Here"
+                isInvalid={errors.message}
+                value={message}
+                onChange={(e) => setMessage(validator.escape(e.target.value))}
+              />
+              <Form.Control.Feedback type="invalid">
+                Please enter a message.
+              </Form.Control.Feedback>
+              <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+            </Form.Group>
+            <Button type="submit" className="yellow-submit-button">
+              <b></b>Submit Message
+            </Button>
+          </Form>
+        </Col>
+      </Row>
     </Layout>
-  </Styles>
-);
+  );
+};
+
+export default Contact;

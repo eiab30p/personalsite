@@ -20,12 +20,13 @@ export const Home = () => (
         <h2>Hello World!</h2>
         <p>
           Welcome! I'm Eduardo "Eddy" Verde and this is my personal website. I'm
-          a Software Engineer specialises in developing scalable applications
-          for on premise or the cloud. Please feel free to read more{" "}
-          <a href="/about">about me</a> or feel free to explore some of the{" "}
-          <a href="/projects">projects</a> I have been creating. If you are want
-          to get in contact with me feel free to send over an{" "}
-          <a href="/contact">email</a>.
+          a Software Engineer who specializes in developing scalable
+          applications for on-premise or the cloud. Please feel free to read
+          more <a href="/about">about me</a> or view some of the
+          <a href="/projects">projects</a>I have worked on. If you would like to
+          discuss projects, tools, or ideas send over an email via the{" "}
+          <a href="/contact">contact</a>
+          page.
         </p>
       </div>
     </Layout>

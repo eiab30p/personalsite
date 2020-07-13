@@ -1,0 +1,31 @@
+.yellow-submit-button {
+  color: #343a40 !important;
+  background-color: rgb(249, 211, 66) !important;
+  border-color: #343a40 !important;
+}
+
+.contact-header-second {
+  color: rgb(249, 211, 66);
+  padding-left: 6em;
+}
+.left-content {
+  align-self: center;
+  text-align: center;
+  border-right: solid 0.5px rgb(249, 211, 66);
+}
+
+@media screen and (max-width: 768px) {
+  .left-content {
+    border-right: none;
+    border-bottom: solid 0.5px rgb(249, 211, 66);
+    margin-bottom: 1em;
+    padding-bottom: 2em;
+    padding-top: 1em;
+  }
+}
+
+.email-tag {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgb(249, 211, 66);
+}
