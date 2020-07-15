@@ -1,21 +1,13 @@
 import React, { Component } from "react";
-import { Layout } from "../components/Layout";
+import Layout from "../components/Layout";
 import Container from "react-bootstrap/Container";
-import styled from "styled-components";
 import Work from "../aboutContent/Work";
 import Skills from "../aboutContent/Skills";
 import Education from "../aboutContent/Education";
+import "../styles/About.css";
 
-class About extends Component {
+export default class About extends Component {
   render() {
-    const Styles = styled.div`
-      .background-text {
-        -moz-box-shadow: 1px 1px 7px #e5e5e5;
-        -webkit-box-shadow: 1px 1px 7px #e5e5e5;
-        box-shadow: 1px 1px 7px #e5e5e5;
-      }
-    `;
-
     const education = [
       {
         title: "BA in Computer Science",
@@ -114,65 +106,61 @@ class About extends Component {
     ];
 
     return (
-      <Styles>
-        <Layout>
-          <h3 className="font-weight-bold bold-text"> Who Is This Guy?</h3>
-          <hr />
-          <Container className="background-text pt-3 pb-3 mb-4">
-            <p>
-              Agile trained Full-Stack DevOps Software Engineer with a complete
-              understanding of the software development life-cycle process.
-              Versed in several programming languages, emerging technology,
-              cloud computing, Microservices, containerization, and a variety of
-              frameworks. I am proactive, results-driven, and a problem solver
-              who is innovative, resourceful, and comfortable with risk-taking.
-            </p>
-            <p>
-              More than 6 years of programming and enterprise application
-              development experience.
-            </p>
-          </Container>
+      <Layout>
+        <h3 className="font-weight-bold bold-text"> Who Is This Guy?</h3>
+        <hr />
+        <Container className="background-text pt-3 pb-3 mb-4">
+          <p>
+            Agile trained Full-Stack DevOps Software Engineer with a complete
+            understanding of the software development life-cycle process. Versed
+            in several programming languages, emerging technology, cloud
+            computing, Microservices, containerization, and a variety of
+            frameworks. I am proactive, results-driven, and a problem solver who
+            is innovative, resourceful, and comfortable with risk-taking.
+          </p>
+          <p>
+            More than 6 years of programming and enterprise application
+            development experience.
+          </p>
+        </Container>
 
-          <h3 className="font-weight-bold bold-text"> What's The Latest?</h3>
-          <hr />
-          <Container className="background-text pt-3 pb-3 mb-4">
-            <p>
-              Currently, at Attain, I am a Sr. Associate working with USCIS as a
-              Full-Stack Developer. In this position, I am taking my
-              microservice and containerization background to assist in
-              developing an enterprise-level application utilizing AWS and open
-              source tools, Machine Learning, and Big Data.
-              <br />
-              <br />
-              Outside of Attain, I explore a multitude of different technologies
-              (ie Neo4J, GraphQL, Web Assembly), languages (ie GoLang, Rust),
-              and side projects (Tricoder Security, a SOAR/SIEM product)
-            </p>
-          </Container>
+        <h3 className="font-weight-bold bold-text"> What's The Latest?</h3>
+        <hr />
+        <Container className="background-text pt-3 pb-3 mb-4">
+          <p>
+            Currently, at Attain, I am a Sr. Associate working with USCIS as a
+            Full-Stack Developer. In this position, I am taking my microservice
+            and containerization background to assist in developing an
+            enterprise-level application utilizing AWS and open source tools,
+            Machine Learning, and Big Data.
+            <br />
+            <br />
+            Outside of Attain, I explore a multitude of different technologies
+            (ie Neo4J, GraphQL, Web Assembly), languages (ie GoLang, Rust), and
+            side projects (Tricoder Security, a SOAR/SIEM product)
+          </p>
+        </Container>
 
-          <h3 className="font-weight-bold bold-text">Skills?</h3>
-          <hr />
-          <Container className="background-text pt-3 pb-3 mb-4">
-            <Skills />
-          </Container>
+        <h3 className="font-weight-bold bold-text">Skills?</h3>
+        <hr />
+        <Container className="background-text pt-3 pb-3 mb-4">
+          <Skills />
+        </Container>
 
-          <h3 className="font-weight-bold bold-text">Where Have You Worked?</h3>
-          <hr />
-          <Container className="background-text pt-3 pb-3 mb-4">
-            <Work jobs={work} />
-          </Container>
+        <h3 className="font-weight-bold bold-text">Where Have You Worked?</h3>
+        <hr />
+        <Container className="background-text pt-3 pb-3 mb-4">
+          <Work jobs={work} />
+        </Container>
 
-          <h3 className="font-weight-bold bold-text text-wrap">
-            Any Eduction, Training, Certifications?
-          </h3>
-          <hr />
-          <Container className="background-text pt-3 pb-3 mb-4">
-            <Education education={education} />
-          </Container>
-        </Layout>
-      </Styles>
+        <h3 className="font-weight-bold bold-text text-wrap">
+          Any Eduction, Training, Certifications?
+        </h3>
+        <hr />
+        <Container className="background-text pt-3 pb-3 mb-4">
+          <Education education={education} />
+        </Container>
+      </Layout>
     );
   }
 }
-
-export default About;

@@ -1,0 +1,84 @@
+.jumbo {
+  height: 50vh;
+  color: rgb(249, 211, 66);
+
+  @media screen and (max-width: 522px) {
+    height: 30vh;
+  }
+  @media screen and (max-width: 400px) {
+    height: 25vh;
+  }
+}
+
+.background-img {
+  background: url("../assets/geo.png") no-repeat fixed bottom;
+  background-size: cover;
+}
+.center-text {
+  padding-top: 15vh;
+}
+.center-text > .pre-text {
+  font-size: 2em;
+}
+
+.center-text > .bold-text {
+  font-size: 4em;
+}
+
+@media screen and (max-width: 1024px) {
+  .center-text > .pre-text {
+    font-size: 2em;
+  }
+
+  .center-text > .bold-text {
+    font-size: 4em;
+  }
+}
+@media screen and (max-width: 900px) {
+  .center-text > .pre-text {
+    font-size: 1.5em;
+  }
+  .center-text > .bold-text {
+    font-size: 3.5em;
+  }
+}
+@media screen and (max-width: 522px) {
+  .center-text {
+    padding-top: 8vh;
+  }
+
+  .center-text > .pre-text {
+    font-size: 1em;
+  }
+  .center-text > .bold-text {
+    font-size: 2em;
+  }
+}
+@media screen and (max-width: 400px) {
+  .center-text {
+    padding-top: 5vh;
+  }
+
+  .center-text > .pre-text {
+    font-size: 1em;
+  }
+  .center-text > .bold-text {
+    font-size: 2em;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .center-text {
+    padding-top: 4vh;
+  }
+  .center-text > .pre-text {
+    font-size: 1em;
+  }
+  .center-text > .bold-text {
+    font-size: 1.5em;
+  }
+}
+
+h1 {
+  font-size: 8em;
+}

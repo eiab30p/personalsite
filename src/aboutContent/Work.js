@@ -12,7 +12,7 @@ class Work extends Component {
       <Styles>
         <CardColumns>
           {jobs.map((job, i) => [
-            i > 0 && ", ",
+            i > 0 && " ",
             <Cards
               key={i}
               title={job.title}

@@ -1,20 +1,15 @@
 import React, { Component } from "react";
 import Card from "react-bootstrap/Card";
-import styled from "styled-components";
 import ListGroup from "react-bootstrap/ListGroup";
+import "../styles/Cards.css";
 
-class Cards extends Component {
+export default class Cards extends Component {
   render() {
-    const Styles = styled.div`
-      .card-text {
-        font-size: 1em !important;
-      }
-    `;
     const technology = this.props.technology;
     const language = this.props.language;
 
     return (
-      <Styles>
+      <div>
         <Card>
           <Card.Body>
             <Card.Title className="d-flex">
@@ -54,9 +49,7 @@ class Cards extends Component {
             </Card.Footer>
           )}
         </Card>
-      </Styles>
+      </div>
     );
   }
 }
-
-export default Cards;

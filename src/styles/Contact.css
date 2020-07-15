@@ -2,11 +2,46 @@
   color: #343a40 !important;
   background-color: rgb(249, 211, 66) !important;
   border-color: #343a40 !important;
+  padding: 0.75rem 1.25rem !important;
+  margin-right: 4rem;
+}
+
+alert {
+  margin-bottom: 0rem !important;
+}
+
+@media screen and (min-width: 992px) {
+  .yellow-submit-button {
+    margin-right: 1rem;
+    max-width: 45% !important;
+  }
+}
+
+@media screen and (max-width: 986px) {
+  .center-content {
+    align-self: center;
+    text-align: center;
+  }
+  .yellow-submit-button {
+    margin-bottom: 1em;
+  }
 }
 
 .contact-header-second {
   color: rgb(249, 211, 66);
   padding-left: 6em;
+}
+
+@media screen and (max-width: 768px) {
+  .contact-header-second {
+    padding-left: 6em;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .contact-header-second {
+    padding-left: 4em;
+  }
 }
 .left-content {
   align-self: center;
@@ -15,6 +50,16 @@
 }
 
 @media screen and (max-width: 768px) {
+  .left-content {
+    border-right: none;
+    border-bottom: solid 0.5px rgb(249, 211, 66);
+    margin-bottom: 1em;
+    padding-bottom: 2em;
+    padding-top: 1em;
+  }
+}
+
+@media screen and (max-width: 978px) {
   .left-content {
     border-right: none;
     border-bottom: solid 0.5px rgb(249, 211, 66);

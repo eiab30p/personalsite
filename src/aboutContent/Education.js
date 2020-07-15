@@ -11,7 +11,7 @@ class Education extends Component {
       <Styles>
         <CardColumns>
           {education.map((edu, i) => [
-            i > 0 && ", ",
+            i > 0 && " ",
             <Cards
               key={i}
               title={edu.title}
