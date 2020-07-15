@@ -1,37 +1,14 @@
-@import url(
-  https://fonts.googleapis.com/css?family=Roboto:400,
-  100,
-  300,
-  500,
-  700
-);
-
-body {
-  background: #eeeef4;
-  color: #999;
-  font-family: Roboto;
-}
-
-h1 {
-  font-weight: 100;
-  font-size: 27pt;
-  color: #e43;
-}
-
-p {
-  font-weight: 300;
-}
-
 .warning-content {
   text-align: center;
   margin: 0;
+  color: #e43;
 }
 
-* html .clearfix {
+.clearfix {
   zoom: 1;
 }
 /* IE6 */
-*:first-child + html .clearfix {
+.clearfix {
   zoom: 1;
 }
 /* IE7 */
@@ -47,20 +24,7 @@ p {
   zoom: 1;
   /* For IE 6/7 (trigger hasLayout) */
 }
-* {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-}
-a,
-a:hover,
-a:focus,
-a:active {
-  text-decoration: none !important;
-  outline: none;
-}
+
 .npd {
   padding: 0;
 }
@@ -70,23 +34,12 @@ li {
   margin: 0;
   list-style: none;
 }
-a:hover {
-  opacity: 0.7;
-  color: white;
-}
 
 .clear {
   clear: both;
 }
 img {
   max-width: 100%;
-}
-h1,
-h2,
-h3,
-h4 {
-  padding: 0;
-  margin: 0;
 }
 
 .comp {

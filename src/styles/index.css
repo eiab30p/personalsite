@@ -6,6 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   padding-top: 3.5rem;
+  color: #212529 !important;
 }
 hr {
   border-color: rgb(249, 211, 66) !important;
