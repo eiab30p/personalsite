@@ -13,15 +13,20 @@ export default class App extends Component {
     return (
       <React.Fragment>
         <Helmet>
-          <meta
-            name="description"
-            content="Eduardo 'Eddy' Verde's Personal Site. Learn about who Eduardo Verde is and his Software Engineering skills."
-          />
           <meta name="author" content="Eduardo Verde" />
           <meta
+            name="description"
+            content="Eduardo 'Eddy' Verde's Personal Site. Learn about who Eddy Verde is. Freelancer, Software Engineer, Full-Stack Engineer, DevOps Engineer, Agile Trained, Problem Solver"
+          />
+          <meta
             name="keywords"
-            content="Eddy Verde, Verde, Eduardo 'Eddy' Verde, Eduardo Verde, Software, Software Engineer, Websites, Freelance, Fullstack, Full-stack, developer, computers, programming"
-          ></meta>
+            content="Eddy Verde, Verde, Eduardo 'Eddy' Verde, Eduardo Verde, Software, Software Engineer, Websites, freelance, Fullstack, Full-stack, developer, python, javascript, java, devops, jenkins, aws, computers, programming, security, orlando, fl, florida,"
+          />
+          <meta
+            name="title"
+            content="Eduardo 'Eddy' Verde's Personal Site. Learn about who Eddy Verde is."
+          />
+          <meta name="author" content="Eduardo 'Eddy' Verde" />
           <title>Eduardo "Eddy" Verde | Software Engineer</title>
           <link rel="canonical" href="https://eduardoverde.com/about" />
           <link rel="canonical" href="https://eduardoverde.com/projects" />
@@ -34,7 +39,7 @@ export default class App extends Component {
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />
             <Route path="/projects" component={Portfolio} />
-            <Route component={NotFound} />
+            <Route component={NotFound} status={404} />
           </Switch>
         </Router>
       </React.Fragment>
