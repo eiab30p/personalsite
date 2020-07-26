@@ -8,7 +8,7 @@ phases:
   build:
     commands:
       - echo Starting Build
-      - npm run build
+      - npm run sitemap && npm run build
 
 artifacts:
   files:

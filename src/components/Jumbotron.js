@@ -18,15 +18,16 @@ export default class Jumbotron extends Component {
                   "DevOps Engineer",
                   "Agile Trained",
                   "Problem Solver",
+                  "Freelancer",
                 ]}
                 speed={90}
                 eraseDelay={700}
                 typingDelay={900}
               />
             </p>
-            <p className="row font-weight-bold bold-text">
+            <h1 className="row font-weight-bold bold-text">
               Eduardo "Eddy" Verde
-            </p>
+            </h1>
           </Container>
         </Container>
       </div>
